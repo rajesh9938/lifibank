@@ -319,3 +319,4 @@ def aproved_credit_card(request):
     
     return render(request, 'aproved_credit_card.html')
 
+# sgvdghsvghd
