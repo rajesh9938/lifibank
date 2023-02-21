@@ -1,0 +1,363 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+
+<head>
+  <title>Li-fi &mdash; Website Bank by Finances</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'fonts/icomoon/style.css' %}">
+
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/jquery-ui.css' %}">
+  <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+
+  <link rel="stylesheet" href="{% static 'css/jquery.fancybox.min.css' %}">
+
+  <link rel="stylesheet" href="{% static 'css/bootstrap-datepicker.css' %}">
+
+  <link rel="stylesheet" href="{% static 'fonts/flaticon/font/flaticon.css' %}">
+
+  <link rel="stylesheet" href="{% static 'css/aos.css' %}">
+
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/headers/">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+  <style>
+    .navbar {
+      background-color: green !important;
+    }
+
+    .navbar-nav {
+      background-color: green !important;
+    }
+
+    .navbar-nav:hover {
+      background-color: green !important;
+    }
+
+    .dropdown-menu {
+      background-color: green !important;
+    }
+
+    .dropdown-menu:hover {
+      background-color: green !important;
+
+    }
+
+    .nav-link {
+      color: white !important;
+    }
+
+    .dropdown-item {
+      color: white !important;
+    }
+
+    .nav-link:hover {
+      font-size: 17px;
+      background-color: green !important;
+    }
+
+    .dropdown-item:hover {
+      font-size: 17px;
+      background-color: green !important;
+    }
+  </style>
+
+</head>
+
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+
+  <div class="container">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary my-3">
+      <div class="container-fluid">
+        <a href="{% url 'home' %}"
+          class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+
+          <span class=""><img src="https://purelifi.com/wp-content/uploads/2020/07/cropped-cropped-pureLiFi-logo.png"
+              alt="Li-Fi Money" loading="lazy" class="sc-gsnTZi sc-dkzDqf krIvpr hKVGsE" width="130px"></span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin-left: 60%;">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+            </li>
+            {% if not request.session.username %}
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Registation
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="{% url 'apply' %}">Apply</a></li>
+                <li><a class="dropdown-item" href="{% url 'coustmer_login' %}">Coustmer login</a></li>
+              </ul>
+            </li>
+            {% endif %}
+            {% if request.session.username %}
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Service
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="{% url 'appled_user' %}">Appled user</a></li>
+                <li><a class="dropdown-item" href="{% url 'aproved_user' %}">Aproved User</a></li>
+                <li><a class="dropdown-item" href="{% url 'apply_credit_card' %}">Applyed creditcard</a></li>
+              </ul>
+            </li>
+            {% endif %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'contact' %}">Help</a>
+            </li>
+            {% if not request.session.username %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'login' %}">Staf Login</a>
+            </li>
+            {% endif %}
+            {% if request.session.username %}
+            {% for i in data %}
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                {{i.username}}
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
+              </ul>
+            </li>
+            {% endfor %}
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- <div class="container"> -->
+
+    {% for msg in messages %}
+    <p>{{msg}}</p>
+    {% endfor %}
+    <div style="height: 200px;" class="site-blocks-cover overlay" data-aos="fade" id="home-section">
+      <div class="container">
+        <div class="row align-items-center justify-content-center">
+          <div class="col-md-10 mt-lg-5 text-center">
+            <div class="single-text owl-carousel">
+              <div class="slide">
+                <h1 class="text-uppercase" data-aos="fade-up">One app for all things money</h1>
+                <p class="mb-5 desc" data-aos="fade-up" data-aos-delay="100">You don't need 50 apps to manage your
+                  money.
+                  All you need is Fi. Save, invest, and get smarter with your money.</p>
+                <div data-aos="fade-up" data-aos-delay="100">
+                  <a href="{% url 'coustlogin' %}" target="_blank" class="btn  btn-danger mr-2 mb-2">Get In Touch</a>
+                </div>
+              </div>
+
+              <div class="slide">
+                <h1 class="text-uppercase" data-aos="fade-up">Financing Solutions</h1>
+                <p class="mb-5 desc" data-aos="fade-up" data-aos-delay="100">Lorem ipsum dolor sit amet consectetur
+                  adipisicing elit.
+                  Repudiandae minima delectus accusamus accusantium deleniti libero excepturi porro illo.</p>
+                <div data-aos="fade-up" data-aos-delay="100">
+                  <a href="{% url 'coustlogin' %}" target="_blank" class="btn  btn-danger mr-2 mb-2">Get In Touch</a>
+                </div>
+              </div>
+
+              <div class="slide">
+                <h1 class="text-uppercase" data-aos="fade-up">Savings Accounts</h1>
+                <p class="mb-5 desc" data-aos="fade-up" data-aos-delay="100">Lorem ipsum dolor sit amet consectetur
+                  adipisicing elit.
+                  Repudiandae minima delectus accusamus accusantium deleniti libero excepturi porro illo.</p>
+                <div data-aos="fade-up" data-aos-delay="100">
+                  <a href="{% url 'coustlogin' %}" target="_blank" class="btn  btn-danger mr-2 mb-2">Get In Touch</a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- <a href="#next" class="mouse smoothscroll">
+      <span class="mouse-icon">
+        <span class="mouse-wheel"></span>
+      </span>
+    </a> -->
+    </div>
+    <section class="site-section" id="about-section">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-12 text-center" data-aos="fade">
+            <h2 class="section-title mb-3">Our Services</h2>
+          </div>
+        </div>
+        <div class="row align-items-stretch">
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up">
+            <div class="unit-4">
+              <div class="unit-4-icon">
+                <a href="#">
+                  <img src="{% static 'images/flaticon-svg/svg/001-wallet.svg' %}"
+                    alt="Free Website Template by Free-Template.co" class="img-fluid w-25 mb-4"></a>
+              </div>
+              <div>
+                <h3><a href="#" style="text-decoration: none;">Wallet Balance</a></h3>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione animi tempora sint hic quod!
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="unit-4">
+              <div class="unit-4-icon">
+                <a href="{% url 'apply_credit_card' %}">
+                  <img src="{% static 'images/flaticon-svg/svg/006-credit-card.svg' %}"
+                    alt="Free Website Template by Free-Template.co" class="img-fluid w-25 mb-4">
+                </a>
+              </div>
+              <div>
+                <h3><a href="{% url 'apply_credit_card' %}" style="text-decoration: none;">Credit Card</a></h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores nemo beatae minus incidunt
+                  voluptates?</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="unit-4">
+              <div class="unit-4-icon">
+                <a href="#">
+                  <img src="{% static 'images/flaticon-svg/svg/002-rich.svg' %}"
+                    alt="Free Website Template by Free-Template.co" class="img-fluid w-25 mb-4">
+                </a>
+              </div>
+              <div>
+                <h3><a href="#" style="text-decoration: none;">Income Monitoring</a></h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores optio veritatis aperiam
+                  consequuntur
+                  qui.</p>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="">
+            <div class="unit-4">
+              <div class="unit-4-icon">
+                <a href="#">
+                  <img src="{% static 'images/flaticon-svg/svg/003-notes.svg' %}"
+                    alt="Free Website Template by Free-Template.co" class="img-fluid w-25 mb-4">
+                </a>
+              </div>
+              <div>
+                <h3><a href="#" style="text-decoration: none;">Insurance Consulting</a>
+                </h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia labore suscipit distinctio
+                  inventore
+                  doloribus deserunt!</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="unit-4">
+              <div class="unit-4-icon">
+                <a href="#">
+                  <img src="{% static 'images/flaticon-svg/svg/004-cart.svg' %}"
+                    alt="Free Website Template by Free-Template.co" class="img-fluid w-25 mb-4">
+                </a>
+              </div>
+              <div>
+                <h3><a href="#" style="text-decoration: none;">Financial Investment</a>
+                </h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque odio voluptatibus repellat hic
+                  officia
+                  quibusdam!</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="unit-4">
+              <div class="unit-4-icon">
+                <a href="#">
+                  <img src="{% static 'images/flaticon-svg/svg/005-megaphone.svg' %}"
+                    alt="Free Website Template by Free-Template.co" class="img-fluid w-25 mb-4">
+                </a>
+              </div>
+              <div>
+                <h3><a href="#" style="text-decoration: none;">Financial Management</a>
+                </h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In, iusto eaque velit saepe nobis
+                  ipsa?</p>
+              </div>
+            </div>
+          <ply
+        </div>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-9">
+            <div class="row">
+              <div class="col-md-5">
+                <h2 class="footer-heading mb-4">About Us</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque facere laudantium magnam voluptatum
+                  autem. Amet aliquid nesciunt veritatis aliquam.</p>
+              </div>
+              <div class="col-md-3 footer-social">
+                <h2 class="footer-heading mb-4">Follow Us</h2>
+                <a href="#" class="pl-0 pr-3"><span class="icon-facebook"></span></a>
+                <a href="#" class="pl-3 pr-3"><span class="icon-twitter"></span></a>
+                <a href="#" class="pl-3 pr-3"><span class="icon-instagram"></span></a>
+                <a href="#" class="pl-3 pr-3"><span class="icon-linkedin"></span></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <h2 class="footer-heading mb-4">Subscribe Newsletter</h2>
+            <form action="#" method="post" class="footer-subscribe">
+              <div class="input-group mb-3">
+                <input type="text" class="form-control border-secondary text-white bg-transparent"
+                  placeholder="Enter Email" aria-label="Enter Email" aria-describedby="button-addon2">
+                <div class="input-group-append">
+                  <button class="btn btn-primary text-black" type="button" id="button-addon2">Send</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <!-- .site-wrap -->
+
+  <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+  <script src="{% static 'js/jquery-ui.js' %}"></script>
+  <script src="{% static 'js/popper.min.js' %}"></script>
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+  <script src="{% static 'js/jquery.countdown.min.js' %}"></script>
+  <script src="{% static 'js/jquery.easing.1.3.js' %}"></script>
+  <script src="{% static 'js/aos.js' %}"></script>
+  <script src="{% static 'js/jquery.fancybox.min.js' %}"></script>
+  <script src="{% static 'js/jquery.sticky.js' %}"></script>
+  <script src="{% static 'js/isotope.pkgd.min.js' %}"></script>
+
+
+  <script src="{% static 'js/main.js' %}"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
+
+</body>
+
+</html>

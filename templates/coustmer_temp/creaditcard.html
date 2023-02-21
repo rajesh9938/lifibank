@@ -1,0 +1,415 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+<head>
+    <title>Li-fi &mdash; Website Bank by Finances</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'fonts/icomoon/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/jquery-ui.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/jquery.fancybox.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap-datepicker.css' %}">
+    <link rel="stylesheet" href="{% static 'fonts/flaticon/font/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static 'css/aos.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/headers/">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+        
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+        integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.3.1/css/all.css'>
+    <link rel="stylesheet" href="{% static 'css/ccstyle.css' %}">
+    <style>
+        .navbar {
+            background-color: green !important;
+        }
+
+        .navbar-nav {
+            background-color: green !important;
+        }
+
+        .navbar-nav:hover {
+            background-color: green !important;
+        }
+
+        .dropdown-menu {
+            background-color: green !important;
+        }
+
+        .dropdown-menu:hover {
+            background-color: green !important;
+
+        }
+
+        .nav-link {
+            color: white !important;
+        }
+
+        .dropdown-item {
+            color: white !important;
+        }
+
+        .nav-link:hover {
+            font-size: 17px;
+            background-color: green !important;
+        }
+
+        .dropdown-item:hover {
+            font-size: 17px;
+            background-color: green !important;
+        }
+    </style>
+</head>
+
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+
+    <div id="overlayer"></div>
+
+    <div class="container">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary my-3">
+            <div class="container-fluid">
+                <a href="{% url 'home' %}"
+                    class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+
+                    <span class=""><img
+                            src="https://purelifi.com/wp-content/uploads/2020/07/cropped-cropped-pureLiFi-logo.png"
+                            title="Li-Fi Money" alt="Li-Fi Money" loading="lazy"
+                            class="sc-gsnTZi sc-dkzDqf krIvpr hKVGsE" width="130px"></span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin-left: 60%;">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="{% url 'coustmer_home' %}">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'about' %}">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'contact' %}">Help</a>
+                        </li>
+                        {% if request.session.coustmerid %}
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Dashboard
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="{% url 'coustmer_dashboard' %}">profile</a></li>
+                                <li><a class="dropdown-item" href="{% url 'coustmer_withdraw' %}">Withdraw Money</a>
+                                </li>
+                                <li><a class="dropdown-item" href="{% url 'coustmer_logout' %}">Logout</a></li>
+                            </ul>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- <center > -->
+
+        <div class="card">
+
+            <div class="card__container">
+
+                <div class="card__front">
+
+                    <div class="card__front--bg">
+                        <div class="front--bg--s1"></div>
+                    </div>
+
+                    <div class="card__brand">
+
+                        <span class="card__brand--logo font-logo">
+                            <span class="logo-letter logo-d">LI</span>
+                            <span class="logo-letter logo-mid">&</span>
+                            <span class="logo-letter logo-p">FI</span>
+                        </span>
+
+                        <span class="card__brand--name font-normal">
+                            CREDITCARD
+                        </span>
+
+                    </div>
+
+                    <div class="card__chip">
+                        <div class="card__chip--shape"></div>
+                        <div class="card__chip--shape"></div>
+                        <div class="card__chip--shape"></div>
+                    </div>
+
+                    <div class="card__extra">
+                        <div class="card__extra--contactless">
+                            <i class="fas fa-wifi"></i>
+                        </div>
+                    </div>
+
+                    <div class="card__number font-number">
+                        {{ccno}}
+                    </div>
+
+                    <div class="card__payment">
+                        <i class="fab fa-cc-visa"></i>
+                    </div>
+
+                    <div class="card__user">
+                        <span class="card__user--name  font-number">{{name}}</span>
+                        <div class="card__user--valid">
+                            <div class="card__user--valid-txt font-normal">VALİD THRU</div>
+                            <div class="card__user--valid-date  font-number">{{credit_data.ex_date}}</div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="card__back">
+                    <div class="card__plast">
+                    </div>
+                    <div class="card__contact">
+                        <p class="card__contact--txt">Customer Service: 0855 0055 0055</p>
+                        <p class="card__contact--txt">www.li-ficard.com.xx</p>
+                    </div>
+                    <div class="card__strip"></div>
+                    <div class="card__company">
+                        <div class="card__company--address">7741 Hayvenhurst Ave, Van Nuys, CA 91406 Los Angeles /
+                            Californiya - USA</div>
+                        <div class="card__company--msg">A credit card is different from a charge card, which requires
+                            the balance to be repaid in full each month. </div>
+                    </div>
+                    <div class="card__cvc">
+                        <div class="card__cvc--strip">
+                            <div class="strip-shape"></div>
+                            <div class="strip-shape"></div>
+                            <div class="strip-shape"></div>
+                            <div class="strip-shape"></div>
+                            <div class="strip-shape"></div>
+                        </div>
+
+                        <span class="card__cvc--num"><span class="card__cvc--txt">{{credit_data.cvv}}</span> CVC </span>
+
+                    </div>
+                    <p class="card__cvc--warning"> NOT VALİD WİTHOUT AUTHORİZED SİGNATURE</p>
+                    <div class="card__stamp"></div>
+                    <div class="card--hr"></div>
+                    <div class="card__back--bottom">
+                        <p class="company-dec">
+                            LI & FI PURE BANK
+                        </p>
+                        <p class="card--business">
+                            CreditCard
+                        </p>
+                    </div>
+                    <div class="card__back--shape"></div>
+                </div>
+
+            </div>
+
+        </div>
+        <!-- </center> -->
+        <div>
+
+            <li>
+                <h3 class="">Fees and Charges</h3>
+                <div class="content">
+
+                    <p>There are annual fees and renewal fees applicable on the LI-FI Credit Card (LI-FI
+                        Card).
+                        Annual fee is a one-time charge and renewal fee is charged every year. These
+                        fees
+                        may vary from Cardholder to Cardholder, and for different card variants. These
+                        shall
+                        be as communicated to the Cardholder at the time of applying for the credit
+                        card.
+                        These fees, as applicable, are directly charged to the Cardholder account and
+                        the
+                        same would be billed in the card statement of the month in which it is charged.
+                        There may be separate fees for Additional Cards issued to the Primary
+                        Cardholder.
+                    </p>
+                </div>
+            </li>
+
+            <li>
+                <h3 class="heading lost" data-id="lost">Loss / Theft / Misuse of Card</h3>
+                <div class="content">
+                    <p>a) The Cardholder should contact LI-FICPSL as soon as possible at the LI-FI Card
+                        Helpline
+                        if the Primary or any Additional credit card is misplaced, lost, stolen,
+                        mutilated,
+                        not received when due or if he/she suspects that the credit card is being used
+                        without the Cardholder’s permission. Once a card is reported lost, it should
+                        not,
+                        under any circumstance be used if found by the Cardholder subsequently, and the
+                        Cardholder should cut the card diagonally in half.</p>
+                    <ul class="sublist-01">
+                        <li>The Cardholder can also block the card instantly either on IVR or our
+                            website or
+                            through SMS based service</li>
+                        <li>To block your lost/stolen card through SMS, just SMS BLOCK XXXX to 5676791
+                            from
+                            your registered mobile number. (XXXX = Last 4 digits of your Card number).
+                            If
+                            you do not receive a confirmation SMS within 5 minutes of your request,
+                            please
+                            do not consider the card to have been blocked. Please call up the help line
+                            to
+                            get your card blocked immediately and to avoid any misuse.</li>
+                    </ul>
+                    <p>b) LI-FICPSL is not liable or responsible for any transactions incurred on the card
+                        account prior to the time of reporting of the loss of the card to LI-FICPSL and
+                        the
+                        Cardholder will be wholly liable for the same. In addition to notifying LI-FICPSL
+                        about the loss or theft of the Card, the Cardholder must report any theft of the
+                        Credit Card(s) to the Police and lodge an FIR. The Cardholder will, however, be
+                        liable for all losses when someone obtains and misuses the Card or PIN with the
+                        Cardholder’s consent, or the consent of an Additional Cardholder.</p>
+                    <p>c)As per Reserve Bank of India (RBI) mandate, dated 06 Jul’17 on Customer
+                        Protection
+                        - Limiting Liability of Customers in Unauthorised Electronic Banking
+                        Transactions, a
+                        policy is designed to ensure customer protection relating to unauthorized credit
+                        card transactions. The same is updated on LI-FI Card’s website under “Customer
+                        Grievance Redressal Policy”. The policy is based on the principles of
+                        transparency
+                        and fairness in treatment of customers.</p>
+
+                </div>
+            </li>
+            <li>
+                <h3 class="heading lost" data-id="lost">Schedule of Charges</h3>
+                <div class="content">
+                    <h3>Fees</h3>
+                    <ul class="sub-list">
+                        <li>Annual Fee (one time): <em class="WebRupee">Rs.</em>0 - <em>Rs.</em>9,999
+                        </li>
+                        <li>Renewal Fee (per.annum.): <em class="WebRupee">Rs.</em>0 - <em>Rs.</em>9,999
+                        </li>
+                        <li>Add on Fee (p.a.): Nil</li>
+                    </ul>
+                    <h3>Extended Credit</h3>
+                    <ul class="sub-list">
+                        <li>Interest Free Credit Period: 20-50 days (applicable only on retail purchases
+                            and
+                            if previous month’s outstanding balance is paid in full)</li>
+                        <li>Finance Charges: 3.50% p.m. (42% p.a.) for unsecured cards; 2.75% p.m. (33%
+                            p.a.) for Shaurya, Defence Cards and Secured cards</li>
+                        <li>Minimum Amount Due : {Total GST + EMI amount + 100% of Fees/Charges + 5%
+                            finance
+                            charge (if any), retail spends and cash advance (if any)}</li>
+                        <li>Minimum Finance Charges: Rs.25</li>
+                    </ul>
+                    <h3>Other Charges &amp; Fees</h3>
+                    <ul class="sub-list">
+                        <li>Cash Payment Fee: Revised from Rs. 199 to Rs. 250 w.e.f. 01 Sep 2021</li>
+                        <li>Payment Dishonor Fee: 2% of Payment Amount (subject to a minimum of&nbsp;
+                            <em class="WebRupee">Rs.</em>&nbsp;500 )
+                        </li>
+                        <li>Cheque Payment Fee: <em class="WebRupee">Rs.</em> 100</li>
+                        <li>Late Payment:
+                            <ul class="inner-sublist">
+                                <li>NIL for Oustanding Amount from Rs.0-Rs.500;</li>
+                                <li>Rs. 400 for Oustanding Amount greater than Rs. 500 &amp; up to Rs.
+                                    1000;
+                                </li>
+                                <li>Rs. 750 for Oustanding Amount greater than Rs. 1000 &amp; up to Rs.
+                                    10,000;</li>
+                                <li>Rs. 950 for Oustanding Amount greater than Rs. 10,000&nbsp; up to
+                                    Rs.
+                                    25,000;</li>
+                                <li>Rs. 1100 for Oustanding Amount greater than Rs. 25,000 &amp; up to
+                                    Rs.
+                                    50,000</li>
+                                <li>Rs. 1300 for Oustanding Amount greater than Rs. 50,000</li>
+                                <li>An additional Late Payment Charge of Rs. 100 will be levied on
+                                    missing
+                                    payment of Minimum Amount Due (MAD) by the due date for two
+                                    consecutive
+                                    cycles. This charge will continue to be levied for every payment
+                                    cycle
+                                    until the MAD is cleared</li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </div>
+            </li>
+        </div>
+
+
+        <div class="container">
+            <footer class="site-footer my-5">
+                <div class="">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <h2 class="footer-heading mb-4">About Us</h2>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque facere
+                                        laudantium
+                                        magnam voluptatum
+                                        autem. Amet aliquid nesciunt veritatis aliquam.</p>
+                                </div>
+                                <div class="col-md-3 footer-social">
+                                    <h2 class="footer-heading mb-4">Follow Us</h2>
+                                    <a href="#" class="pl-0 pr-3"><span class="icon-facebook"></span></a>
+                                    <a href="#" class="pl-3 pr-3"><span class="icon-twitter"></span></a>
+                                    <a href="#" class="pl-3 pr-3"><span class="icon-instagram"></span></a>
+                                    <a href="#" class="pl-3 pr-3"><span class="icon-linkedin"></span></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <h2 class="footer-heading mb-4">Subscribe Newsletter</h2>
+                            <form action="#" method="post" class="footer-subscribe">
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control border-secondary text-white bg-transparent"
+                                        placeholder="Enter Email" aria-label="Enter Email"
+                                        aria-describedby="button-addon2">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-primary text-black" type="button"
+                                            id="button-addon2">Send</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <!-- .site-wrap -->
+
+    <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'js/jquery-ui.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'js/jquery.countdown.min.js' %}"></script>
+    <script src="{% static 'js/jquery.easing.1.3.js' %}"></script>
+    <script src="{% static 'js/aos.js' %}"></script>
+    <script src="{% static 'js/jquery.fancybox.min.js' %}"></script>
+    <script src="{% static 'js/jquery.sticky.js' %}"></script>
+    <script src="{% static 'js/isotope.pkgd.min.js' %}"></script>
+
+
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>

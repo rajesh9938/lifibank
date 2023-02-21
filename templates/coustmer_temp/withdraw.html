@@ -1,0 +1,94 @@
+{% extends 'coustmer_temp/basecoust.html' %}
+{% block content %}
+<div id="content" class="py-4">
+    <div class="container">
+        <h2 class="fw-400 text-center mt-3 mb-4" style="color: red;">Withdraw Money</h2>
+        <div class="row" style="box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;">
+            <div class="col-md-9 col-lg-7 col-xl-6 mx-auto">
+                <!-- Steps Progress bar -->
+                <div class="row mt-3 mb-3">
+                    <div class="col-lg-11 mx-auto">
+                        <div class="row widget-steps">
+                            <div class="col-4 step active">
+                                <div class="step-name">Details</div>
+                                <div class="progress">
+                                    <div class="progress-bar"></div>
+                                </div>
+                                <a href="#" class="step-dot"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Withdraw Money Form
+                ============================================= -->
+                <div class="shadow-sm rounded p-3 pt-sm-5 pb-sm-5 px-sm-5 mb-4">
+                    <div class="text-center p-4 rounded mb-4" style="background-image: linear-gradient(135deg, #fc9504 25%, #269954 100%);">
+                        <h3 class="text-10 text-white fw-400">₹{{" "}}{{coustmer_detail.balance}}</h3>
+                        <p class="text-white">Available Balance</p>
+
+                    </div>
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="withdrawto" class="form-label">Withdraw to</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="withdraw_no" data-bv-field="youSend" minlength="16" required placeholder="XXXXXXXXXXXX9025">
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="withdrawto" class="form-label">IFSC</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" required name="ifsc" data-bv-field="youSend" id="youSend"
+                                    placeholder="IFSCxxx0001671" >
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="youSend" class="form-label">Amount</label>
+                            <div class="input-group">
+                                <span class="input-group-text">₹</span>
+                                <input type="number" class="form-control" name="amount"
+                                    value="1,000" placeholder="" required>
+                            </div>
+                        </div>
+                        
+                        <hr>
+                        <p class="text-3 fw-500">Amount to Withdraw <span class="float-end"></span></p>
+                        <button type="submit" class="btn btn-danger btn-md text-white" data-toggle="modal"
+                            data-target="#qwe">Continue</button>
+                        <!-- Modal -->
+                        <div class="modal fade" id="qwe" tabindex="-1" role="dialog"
+                            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLongTitle">
+                                            Enter your mpin ..</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <form action="{% url 'coustmer_success' %}" method="POST">
+                                        {% csrf_token %}
+                                        
+                                        <div class="modal-body">
+                                            <input type="password" required maxlength="4" class="form-control" name="m__pin">
+                                        </div>
+
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-dismiss="modal">Close</button>
+
+                                            <button type="submit" class="btn btn-secondary">yes</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!-- Withdraw Money Form end -->
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

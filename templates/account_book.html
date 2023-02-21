@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Li-fi &mdash; Website Bank by Finances</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <h3 class="mb-0" style="color: black;"><i class="far fa-clone pr-1"></i>Detials</h3>
+    
+    <div class="card-body pt-0">
+        {% if account_data %}
+        <table class="table table-hover">
+            <!-- {% if set_data %}
+            <tr>
+                <th width="30%">Name </th>
+                <td width="2%">:</td>
+                <td>{{set_data.first_name}} {{set_data.last_name}}</td>
+            </tr>
+            <tr>
+                <th width="30%">Phone No.</th>
+                <td width="2%">:</td>
+                <td>{{set_data.mobile}}</td>
+            </tr>
+            {% endif %} -->
+            <tr>
+                <th width="30%">Account NO </th>
+                <td width="2%">:</td>
+                <td>{{account_data.account_no}}</td>
+            </tr>
+            <tr>
+                <th width="30%">coustmer ID</th>
+                <td width="2%">:</td>
+                <td>{{account_data.coustmerid}}</td>
+            </tr>
+            <tr>
+                <th width="30%">IFC CODE</th>
+                <td width="2%">:</td>
+                <td>{{account_data.ifsc_code}}</td>
+            </tr>
+            <tr>
+                <th width="30%">Branch</th>
+                <td width="2%">:</td>
+                <td>{{account_data.Branch}}</td>
+            </tr>
+            <tr>
+                <th width="30%">Types</th>
+                <td width="2%">:</td>
+                <td>{{account_data.types}}</td>
+            </tr>
+            <tr>
+                <th width="30%">Mode of Operation</th>
+                <td width="2%">:</td>
+                <td>{{account_data.ModeofOperation}}</td>
+            </tr>
+            <tr>
+                <th width="30%">Account Open Date</th>
+                <td width="2%">:</td>
+                <td>{{account_data.created_at}}</td>
+            </tr>
+        </table>
+        {% endif %}
+    </div>
+
+
+    <h3>
+        note : Fi is a money management platform that re-imagines the banking experience in India. The Fi account, in
+        partnership with Federal Bank, is a digital bank account that gives you the fastest way to open a bank account
+        online.
+
+        You can do everything from the Fi App, including p2p payments, fund transfers, bill payments, and more, with
+        features to automate every action. You also get a Fi Debit card, spends insights and tools to grow your
+        investment and earn rewards.
+
+        Disclaimer: You may have noticed some brand logos used on this website to indicate where you, as a user, may or
+        may not have spent money. We don’t endorse these brands. Nor do these brands endorse us. The logos of the
+        specific brands are owned by them.
+    </h3>
+</body>
+
+</html>

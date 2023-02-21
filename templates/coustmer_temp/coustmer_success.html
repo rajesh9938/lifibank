@@ -1,0 +1,24 @@
+{% extends 'coustmer_temp/basecoust.html' %}
+{% block content %}
+<div id="content" class="py-4">
+    <div class="container"> 
+      <h2 class="fw-400 text-center mt-3 mb-4" style="color: red;">Withdraw Money</h2>
+      <div class="row" style="box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;">
+        <div class="col-md-6 col-lg-6 col-xl-6 mx-auto"> 
+          <!-- Withdraw Money Success
+        ============================================= -->
+          <div  class="bg-white text-center shadow-sm rounded p-3 pt-sm-4 pb-sm-5 px-sm-5 mb-4">
+            <div class="my-4">
+              <p class="text-success text-20 lh-1" style="font-size: 90px;" ><i class="fas fa-check-circle" ></i></p>
+              <p class="text-success text-8 fw-400 lh-1" style="font-size: 30px;">Success!</p>
+              <p class="lead">Transactions Complete</p>
+            </div>
+            <p class="text-3 mb-4">You've successfully <span class="text-4 fw-500">$995.00</span> Withdraw Money, See transaction details under.</p>
+            <div class="d-grid"><button class="btn btn-danger">Ok</button></div>
+            <a class="text-3 d-inline-block btn-link mt-4" href="#"><i class="fas fa-print"></i> Print</a> </div>
+          <!-- Withdraw Money Success end --> 
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock content %}

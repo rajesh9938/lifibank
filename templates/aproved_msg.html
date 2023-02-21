@@ -1,0 +1,300 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <title>Li-fi &mdash; Website Bank by Finances</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'fonts/icomoon/style.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/jquery-ui.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/jquery.fancybox.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap-datepicker.css' %}">
+
+    <link rel="stylesheet" href="{% static 'fonts/flaticon/font/flaticon.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/aos.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/headers/">
+
+
+
+
+
+    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+
+        .b-example-divider {
+            height: 3rem;
+            background-color: rgba(0, 0, 0, .1);
+            border: solid rgba(0, 0, 0, .15);
+            border-width: 1px 0;
+            box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+        }
+
+        .b-example-vr {
+            flex-shrink: 0;
+            width: 1.5rem;
+            height: 100vh;
+        }
+
+        .bi {
+            vertical-align: -.125em;
+            fill: currentColor;
+        }
+
+        .nav-scroller {
+            position: relative;
+            z-index: 2;
+            height: 2.75rem;
+            overflow-y: hidden;
+        }
+
+        .nav-scroller .nav {
+            display: flex;
+            flex-wrap: nowrap;
+            padding-bottom: 1rem;
+            margin-top: -1px;
+            overflow-x: auto;
+            text-align: center;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        a {
+            color: rgb(253, 254, 254);
+        }
+
+        a:hover {
+            color: brown;
+        }
+    </style>
+</head>
+
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+
+
+    <div class="container">
+        <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom"
+            style="background-color: rgb(2, 115, 2); border-radius: 5PX;">
+            <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+
+                <span class=""><img src="https://purelifi.com/wp-content/uploads/2020/07/cropped-cropped-pureLiFi-logo.png"
+                    alt="Fi Money" loading="lazy" class="sc-gsnTZi sc-dkzDqf krIvpr hKVGsE" width="130px"></span>
+            </a>
+
+            <ul style="margin-left: 50%;" class="nav nav-pills">
+                <li class="nav-item" style="z-index: 5; position: sticky;"><a href="{% url 'home' %}" class="nav-link"
+                        aria-current="page">Home</a></li>
+                {% if not request.session.username %}
+                <li class="nav-item"><a href="{% url 'apply' %}" class="nav-link">Apply</a></li>
+                <li class="nav-item"><a href="{% url 'about' %}" class="nav-link">About</a></li>
+                {% endif %}
+                {% if request.session.username %}
+                <li class="nav-item"><a href="icons.html" data-toggle="dropdown" class="nav-link">Service<span
+                            class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li style="background-color: rgb(2, 115, 2)"><a href="{% url 'appled_user' %}"
+                                class="nav-link">Appled
+                                user</a></li>
+                        <li style="background-color: rgb(2, 115, 2)"><a href="{% url 'login' %}"
+                                class="nav-link">xxxx</a></li>
+                    </ul>
+                </li>
+                {% endif %}
+                <li class="nav-item"><a href="{% url 'contact' %}" class="nav-link">Help</a></li>
+                {% if not request.session.username %}
+                <li class="nav-item"><a href="{% url 'login' %}" class="nav-link">Staf Login</a></li>
+                {% endif %}
+                {% if request.session.username %}
+                {% for i in data %}
+                <li class="nav-item"><a href="icons.html" data-toggle="dropdown" class="nav-link">{{i.username}}<span
+                            class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li style="background-color: rgb(2, 115, 2)"><a href="{% url 'logout' %}"
+                                class="nav-link">Logout</a></li>
+                    </ul>
+                </li>
+                {% endfor %}
+                {% endif %}
+            </ul>
+        </header>
+    </div>  
+
+    <section style="margin-top: 50px;">
+        <div class="rt-container">
+            <div class="col-rt-12">
+                <div class="Scriptcontent">
+
+                    <!-- Student Profile -->
+                    <div class="student-profile py-4">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-10">
+                                    <div class ="card " style="box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;">
+                                        <div class="card-header bg-transparent border-0">
+                                            <h3 class="mb-0" style="color: black;"><i
+                                                    class="far fa-clone pr-1"></i>Applyer Detials</h3>
+                                        </div>
+                                        <div class="card-body pt-0">
+
+                                            <table class="table table-hover">
+                                                <tr>
+                                                    <th width="30%">Account NO </th>
+                                                    <td width="2%">:</td>
+                                                    <td>1671104000049975</td>
+                                                </tr>
+                                                <tr>
+                                                    <th width="30%">IFC CODE</th>
+                                                    <td width="2%">:</td>
+                                                    <td>IBKL0001671</td>
+                                                </tr>
+                                                <tr>
+                                                    <th width="30%">coustmer ID</th>
+                                                    <td width="2%">:</td>
+                                                    <td>87358645</td>
+                                                </tr>
+                                                <tr>
+                                                    <th width="30%">Branch</th>
+                                                    <td width="2%">:</td>
+                                                    <td>kakatpur</td>
+                                                </tr>
+                                                <tr>
+                                                    <th width="30%">Types</th>
+                                                    <td width="2%">:</td>
+                                                    <td>Saving xxxxxxxxx9975</td>
+                                                </tr>
+                                                <tr>
+                                                    <th width="30%">Mode of Operation</th>
+                                                    <td width="2%">:</td>
+                                                    <td>Single</td>
+                                                </tr>
+                                                <tr>
+                                                    <th width="30%">Account Open Date</th>
+                                                    <td width="2%">:</td>
+                                                    <td>10 jan 2023</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div style="height: 26px"></div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- partial -->
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <h2 class="footer-heading mb-4">About Us</h2>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque facere laudantium
+                                magnam voluptatum autem. Amet aliquid nesciunt veritatis aliquam.</p>
+                        </div>
+                        <div class="col-md-3 ml-auto">
+                            <h2 class="footer-heading mb-4">Quick Links</h2>
+                            <ul class="list-unstyled">
+                                <li><a href="{% url 'home' %}" class="smoothscroll">home</a></li>
+                                <li><a href="{% url 'about' %}" class="smoothscroll">about</a></li>
+                                <li><a href="{% url 'features' %}" class="smoothscroll">features</a></li>
+                                <li><a href="{% url 'faqs' %}" class="smoothscroll">FAQs</a></li>
+                                <li><a href="{% url 'contact' %}" class="smoothscroll">Contact</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-3 footer-social">
+                            <h2 class="footer-heading mb-4">Follow Us</h2>
+                            <a href="#" class="pl-0 pr-3"><span class="icon-facebook"></span></a>
+                            <a href="#" class="pl-3 pr-3"><span class="icon-twitter"></span></a>
+                            <a href="#" class="pl-3 pr-3"><span class="icon-instagram"></span></a>
+                            <a href="#" class="pl-3 pr-3"><span class="icon-linkedin"></span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <h2 class="footer-heading mb-4">Subscribe Newsletter</h2>
+                    <form action="#" method="post" class="footer-subscribe">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control border-secondary text-white bg-transparent"
+                                placeholder="Enter Email" aria-label="Enter Email" aria-describedby="button-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary text-black" type="button"
+                                    id="button-addon2">Send</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="row pt-5 mt-5 text-center">
+                <div class="col-md-12">
+                    <div class="border-top pt-5">
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        <p>Copyright &copy;
+                            <script>document.write(new Date().getFullYear());</script> All rights reserved | This
+                            template is made
+                            with <i class="icon-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com"
+                                target="_blank">Colorlib</a>
+                        </p>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+    </div> <!-- .site-wrap -->
+
+    <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'js/jquery-ui.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'js/jquery.countdown.min.js' %}"></script>
+    <script src="{% static 'js/jquery.easing.1.3.js' %}"></script>
+    <script src="{% static 'js/aos.js' %}"></script>
+    <script src="{% static 'js/jquery.fancybox.min.js' %}"></script>
+    <script src="{% static 'js/jquery.sticky.js' %}"></script>
+    <script src="{% static 'js/isotope.pkgd.min.js' %}"></script>
+
+
+    <script src="{% static 'js/main.js' %}"></script>
+
+
+</body>
+
+</html>

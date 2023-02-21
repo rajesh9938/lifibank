@@ -1,0 +1,151 @@
+{% extends 'coustmer_temp/basecoust.html' %}
+{% load static %}
+{% block content %}
+<section>
+    <!-- Student Profile -->
+    <div class="card">
+
+        <div class="card__container">
+
+            <div class="card__front">
+
+                <div class="card__front--bg">
+                    <div class="front--bg--s1"></div>
+                </div>
+
+                <div class="card__brand">
+
+                <span class="card__brand--logo font-logo">
+                    <span class="logo-letter logo-d">d</span>
+                    <span class="logo-letter logo-mid">&</span>
+                    <span class="logo-letter logo-p">p</span>
+                </span>
+
+                    <span class="card__brand--name font-normal">
+                    SAMPLECARD
+                </span>
+
+                </div>
+
+                <div class="card__chip">
+                    <div class="card__chip--shape"></div>
+                    <div class="card__chip--shape"></div>
+                    <div class="card__chip--shape"></div>
+                </div>
+
+                <div class="card__extra">
+                    <div class="card__extra--contactless">
+                        <i class="fas fa-wifi"></i>
+                    </div>
+                </div>
+
+                <div class="card__number font-number">
+                    1551 4545 0021 7691
+                </div>
+
+                <div class="card__payment">
+                    <i class="fab fa-cc-visa"></i>
+                </div>
+
+                <div class="card__user">
+                    <span class="card__user--name  font-number">MAZLUM YILDIRIM</span>
+                    <div class="card__user--valid">
+                        <div class="card__user--valid-txt font-normal">VALİD THRU</div>
+                        <div class="card__user--valid-date  font-number">17 / 24</div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="card__back">
+                <div class="card__plast">
+                </div>
+                <div class="card__contact">
+                    <p class="card__contact--txt">Customer Service: 0855 0055 0055</p>
+                    <p class="card__contact--txt">www.samplecard.com.xx</p>
+                </div>
+                <div class="card__strip"></div>
+                <div class="card__company">
+                    <div class="card__company--address">7741 Hayvenhurst Ave, Van Nuys, CA 91406 Los Angeles / Californiya - USA</div>
+                    <div class="card__company--msg">A credit card is different from a charge card, which requires the balance to be repaid in full each month. </div>
+                </div>
+                <div class="card__cvc">
+                    <div class="card__cvc--strip">
+                        <div class="strip-shape"></div>
+                        <div class="strip-shape"></div>
+                        <div class="strip-shape"></div>
+                        <div class="strip-shape"></div>
+                        <div class="strip-shape"></div>
+                    </div>
+
+                    <span class="card__cvc--num"><span class="card__cvc--txt">535</span> CVC </span>
+
+                </div>
+                <p class="card__cvc--warning"> NOT VALİD WİTHOUT AUTHORİZED SİGNATURE</p>
+                <div class="card__stamp"></div>
+                <div class="card--hr"></div>
+                <div class="card__back--bottom">
+                    <p class="company-dec">
+                        d&p sample company
+                    </p>
+                    <p class="card--business">
+                        SampleCard
+                    </p>
+                </div>
+                <div class="card__back--shape"></div>
+            </div>
+
+        </div>
+        
+    </div>
+    <div class="col-xs-12 sbi-showcase-note" data-reactid="80">
+        <p class="cc02-benefits-stBlock"><i class="fa fa-shopping-bag cc02-icon"
+                aria-hidden="true"></i><span class="cc02-benefits-statement">Earn 10X
+                rewards on online spends with exclusive partners</span></p>
+        <p class="cc02-benefits-stBlock"><i class="fa fa-star cc02-icon"
+                aria-hidden="true"></i><span class="cc02-benefits-statement">Earn 5X rewards
+                on all other online spends</span></p>
+    </div>
+    <div class="row" data-reactid="85">
+        <div class="col-xs-12 cc02-showcase-btn-wrap" data-reactid="86">
+            <p class="cc02-fix-details" data-reactid="87">Annual Fee:
+                Rs. 499
+            </p>
+        </div>
+        <p>Get free movie tickets worth Rs. 6,000 every year </p>
+        
+    </div>
+    <div class="item-footer">
+        <form action="{% url 'apply1_credit_card' %}" method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn  btn-danger">Apply Now</button>
+        </form>
+    </div>
+    <!-- <div class="student-profile py-4 ">
+        <div class="row">
+            <div class="float-start">
+                <div class="">
+                    <figure class="front">
+                        <img src="{% static 'creditcard.jpg' %}" style="border-radius: 10px;" width="360px" height="220px" alt="My image">
+                        <h3>Li-Fi Credit CARD</h3>
+                        <div class="row" data-reactid="79">
+                            <div class="col-xs-12 sbi-showcase-note" data-reactid="80">
+                                <p class="cc02-benefits-stBlock"><i class="fa fa-shopping-bag cc02-icon"
+                                        aria-hidden="true"></i><span class="cc02-benefits-statement">Earn 10X
+                                        rewards on online spends with exclusive partners</span></p>
+                                <p class="cc02-benefits-stBlock"><i class="fa fa-star cc02-icon"
+                                        aria-hidden="true"></i><span class="cc02-benefits-statement">Earn 5X rewards
+                                        on all other online spends</span></p>
+                            </div>
+                        </div>
+                        
+                    </figure>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div> -->
+
+</section>
+
+{% endblock content %}

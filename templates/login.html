@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+        <section class="site-section bg-light" id="contact-section" data-aos="fade">
+            <div class="container">
+                <div class="row mb-5">
+                    <div class="col-12 text-center">
+                        <h2 class="section-title mb-3">STAFF LOGIN</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 mb-5">
+                        <form action="" method="POST" class="p-5 bg-white">
+                            {% csrf_token %}
+                            <div class="row form-group">
+
+                                <div class="col-md-7">
+                                    <label class="text-black" for="email">Username</label>
+                                    <input type="text" id="" name="username" placeholder="enter your username" class="form-control">
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-md-7">
+                                    <label class="text-black" for="subject">Password</label>
+                                    <input type="password" name="password" placeholder="enter your password" class="form-control">
+                                    <p>if forggeta
+                                        <a href="{% url 'forget' %}">sorg</a>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-md-12">
+                                    <input type="submit" value="login" class="btn btn-danger btn-md text-white">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        {% endblock content %}

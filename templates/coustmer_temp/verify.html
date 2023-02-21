@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+        <section class="site-section bg-light" id="contact-section" data-aos="fade">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 mb-5">
+                        <form action="{% url 'verify' %}" method="POST" class="p-5 bg-white">
+                            {% csrf_token %}
+                            <input type="email" hidden value="{{coustmer.email}}" name="email">
+                            <div class="row form-group">
+                                <div class="col-md-7">
+                                    <label class="text-black" for="email">OTP</label>
+                                    <input type="password" maxlength="4" minlength="4" id="" name="otp" required placeholder="enter your coustmerid" class="form-control">
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-md-7">
+                                    <label class="text-black" for="subject">MPIN</label>
+                                    <input type="password" maxlength="4" minlength="4" name="mpin" required placeholder="enter your MPIN" class="form-control">
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-md-7">
+                                    <label class="text-black" for="subject">CONFIRM MPIN</label>
+                                    <input type="password" maxlength="4" minlength="4" name="mpin2" required placeholder="enter your MPIN" class="form-control">
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-md-12">
+                                    <input type="submit" value="genrete" class="btn btn-danger btn-md text-white">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        {% endblock content %}

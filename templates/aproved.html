@@ -1,0 +1,417 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+
+<head>
+  <title>Li-fi &mdash; Website Bank by Finances</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'fonts/icomoon/style.css' %}">
+
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/jquery-ui.css' %}">
+  <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+
+  <link rel="stylesheet" href="{% static 'css/jquery.fancybox.min.css' %}">
+
+  <link rel="stylesheet" href="{% static 'css/bootstrap-datepicker.css' %}">
+
+  <link rel="stylesheet" href="{% static 'fonts/flaticon/font/flaticon.css' %}">
+
+  <link rel="stylesheet" href="{% static 'css/aos.css' %}">
+
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/headers/">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+  <style>
+    .navbar{
+      background-color: green !important;
+    }
+    .navbar-nav{
+      background-color: green !important;
+    }
+    .navbar-nav:hover{
+      background-color: green !important;
+    }
+    .dropdown-menu{
+      background-color: green !important;
+    }
+    .dropdown-menu:hover{
+      background-color: green !important;
+
+    }
+    .nav-link{
+      color: white !important;
+    }
+    .dropdown-item{
+      color: white !important;
+    }
+    .nav-link:hover{
+      font-size: 17px;
+      background-color: green !important;
+    }
+    .dropdown-item:hover{
+      font-size: 17px;
+      background-color: green !important;
+    }
+  </style>
+  
+</head>
+
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+
+  <div class="container">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary my-3">
+      <div class="container-fluid">
+        <a href="{% url 'home' %}"
+          class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+  
+          <span class=""><img src="https://purelifi.com/wp-content/uploads/2020/07/cropped-cropped-pureLiFi-logo.png"
+            alt="Fi Money" loading="lazy" class="sc-gsnTZi sc-dkzDqf krIvpr hKVGsE" width="130px"></span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin-left: 60%;">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+            </li>
+            {% if not request.session.username %}
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Registation
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="{% url 'apply' %}">Apply</a></li>
+                <li><a class="dropdown-item" href="{% url 'coustmer_login' %}">Coustmer login</a></li>
+              </ul>
+            </li>
+            {% endif %}
+            {% if request.session.username %}
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Service
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="{% url 'appled_user' %}">Appled user</a></li>
+                <li><a class="dropdown-item" href="{% url 'aproved_user' %}">Aproved User</a></li>
+                <li><a class="dropdown-item" href="{% url 'apply_credit_card' %}">Applyed creditcard</a></li>
+              </ul>
+            </li>
+            {% endif %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'contact' %}">Help</a>
+            </li>
+            {% if not request.session.username %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'login' %}">Staf Login</a>
+            </li>
+            {% endif %}
+            {% if request.session.username %}
+            {% for i in data %}
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                {{i.username}}
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
+              </ul>
+            </li>
+            {% endfor %}
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <section style="margin-top: 50px;">
+        <div class="rt-container">
+            <div class="col-rt-12">
+                <div class="Scriptcontent">
+                    <!-- Student Profile -->
+                    <div class="student-profile py-4">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-10">
+                                    <div class="card " style="box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;">
+                                        <div class="card-header bg-transparent border-0">
+                                            <h3 class="mb-0" style="color: black;"><i
+                                                    class="far fa-clone pr-1"></i>Applyer Detials</h3>
+                                        </div>
+                                        <div class="card-body pt-0">
+                                            {% if set_data %}
+                                            <table style="background-color: white;" class="table table-hover">
+                                                <tr>
+                                                    <th width="30%">photo </th>
+                                                    <td width="2%">:</td>
+                                                    <!-- <td>{{set_data.first_name}}  --></td> -->
+                                                    <td><img src="{{set_data.photo.url}}" width="100" height="100"
+                                                    alt=""></td>
+                                                </tr>
+                                                <tr>
+                                                    <th width="30%">Name </th>
+                                                    <td width="2%">:</td>
+                                                    <td>{{set_data.first_name}} {{set_data.last_name}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th width="30%">Mobile</th>
+                                                    <td width="2%">:</td>
+                                                    <td>{{set_data.mobile}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th width="30%">Email</th>
+                                                    <td width="2%">:</td>
+                                                    <td>{{set_data.email}}</td>
+
+                                                </tr>
+                                                <tr>
+                                                    <th width="30%">Pin</th>
+                                                    <td width="2%">:</td>
+                                                    <td>{{set_data.pin}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th width="30%">Address</th>
+                                                    <td width="2%">:</td>
+                                                    <td>{{set_data.address}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th width="30%">Address2</th>
+                                                    <td width="2%">:</td>
+                                                    <td>{{set_data.address2}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th width="30%">State</th>
+                                                    <td width="2%">:</td>
+                                                    <td>{{set_data.state}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th width="30%">Pan_card</th>
+                                                    <td width="2%">:</td>
+                                                    <td>{{set_data.pan_card}}</td>
+                                                    <td><button type="button" class="btn-success text-white"
+                                                            data-toggle="modal" data-target="#pphoto">
+                                                            show
+                                                        </button>
+                                                        <div class="modal fade" id="pphoto" tabindex="-1" role="dialog"
+                                                            aria-labelledby="exampleModalCenterTitle"
+                                                            aria-hidden="true">
+                                                            <div class="modal-dialog modal-dialog-centered"
+                                                                role="document">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-body">
+                                                                        <img src="{{set_data.pan_photo.url}}" width="350" height="200"
+                                                                        alt="">
+                                                                        
+                                                                    </div>
+
+                                                                    <div class="modal-footer">
+                                                                    <button type="button"class="btn btn-secondary"
+                                                                    data-dismiss="modal">Close</button>
+                                                                    <!-- <button type="button"
+                                                                    class="btn btn-secondary">yes</button>
+                                                                    </div> -->
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th width="30%">Addhar_card</th>
+                                                    <td width="2%">:</td>
+                                                    <td>{{set_data.addhar_card}}</td>
+                                                    <td><button type="button" class="btn-success text-white"
+                                                            data-toggle="modal" data-target="#adph">
+                                                            show
+                                                        </button>
+                                                        <div class="modal fade" id="adph" tabindex="-1" role="dialog"
+                                                            aria-labelledby="exampleModalCenterTitle"
+                                                            aria-hidden="true">
+                                                            <div class="modal-dialog modal-dialog-centered"
+                                                                role="document">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-body">
+                                                                        <img src="{{set_data.adhar_f.url}}" width="350" height="200"
+                                                                        alt="">
+                                                                        <img src="{{set_data.adhar_b.url}}" width="350" height="200"
+                                                                        alt="">
+                                                                    </div>
+
+                                                                    <div class="modal-footer">
+                                                                    <button type="button"class="btn btn-secondary"
+                                                                    data-dismiss="modal">Close</button>
+                                                                    <!-- <button type="button"
+                                                                    class="btn btn-secondary">yes</button>
+                                                                    </div> -->
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+
+                                            </table>
+                                            <div class="row form-group" align="center">
+                                                <div class="col-md-12">
+                                                    <!-- <input type="submit" href="" value="Aproved"
+                                                        class="btn btn-success btn-md text-white"> -->
+
+                                                    <button type="button" class="btn btn-success btn-md text-white"
+                                                        data-toggle="modal" data-target="#tsg">
+                                                        Aproved
+                                                    </button>
+                                                    <button type="button" class="btn btn-danger btn-md text-white"
+                                                        data-toggle="modal" data-target="#exampleModalCenter">Reject</button>
+                                                    <!-- Modal -->
+                                                    <div class="modal fade" id="tsg" tabindex="-1" role="dialog"
+                                                        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="exampleModalLongTitle">
+                                                                        are you sure want to aprove application ..</h5>
+                                                                    <button type="button" class="close"
+                                                                        data-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+                                                                <form action="{% url 'aproved_msg' %}" method="POST">
+                                                                    {% csrf_token %}
+                                                                    <div class="modal-body">
+                                                                        <input type="number" hidden="true"
+                                                                            value="{{set_data.id}}" name="email">
+                                                                    </div>
+
+                                                                    <div class="modal-footer">
+                                                                        <button type="button" class="btn btn-secondary"
+                                                                            data-dismiss="modal">Close</button>
+
+                                                                        <button type="submit"
+                                                                            class="btn btn-secondary">yes</button>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+
+                                                    <!-- Modal -->
+                                                    <div class="modal fade" id="exampleModalCenter" tabindex="-1"
+                                                        role="dialog" aria-labelledby="exampleModalCenterTitle"
+                                                        aria-hidden="true">
+                                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="exampleModalLongTitle">
+                                                                        are you sure want to rejecet application ..</h5>
+                                                                    <button type="button" class="close"
+                                                                        data-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+                                                                <form action="{% url 'Reject' %}" method="POST">
+                                                                    {% csrf_token %}
+                                                                    <div class="modal-body">
+                                                                        <input type="text" name="resion">
+                                                                        <input type="number" hidden="true"
+                                                                            value="{{set_data.id}}" name="id">
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="button" class="btn btn-secondary"
+                                                                            data-dismiss="modal">Close</button>
+                                                                        <button type="submit">Delete</button>
+                                                                        <!-- <a href="" class="btn btn-danger">Delete</a>  -->
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                    <div style="height: 26px"></div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- partial -->
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="site-footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-9">
+              <div class="row">
+                <div class="col-md-5">
+                  <h2 class="footer-heading mb-4">About Us</h2>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque facere laudantium magnam voluptatum
+                    autem. Amet aliquid nesciunt veritatis aliquam.</p>
+                </div>
+                <div class="col-md-3 ml-auto">
+                  <h2 class="footer-heading mb-4">Quick Links</h2>
+                  <ul class="list-unstyled">
+                    <li><a href="{% url 'home' %}" class="smoothscroll">home</a></li>
+                    <li><a href="{% url 'about' %}" class="smoothscroll">about</a></li>
+                    <li><a href="{% url 'features' %}" class="smoothscroll">features</a></li>
+                    <li><a href="{% url 'faqs' %}" class="smoothscroll">FAQs</a></li>
+                    <li><a href="{% url 'contact' %}" class="smoothscroll">Contact</a></li>
+                  </ul>
+                </div>
+                <div class="col-md-3 footer-social">
+                  <h2 class="footer-heading mb-4">Follow Us</h2>
+                  <a href="#" class="pl-0 pr-3"><span class="icon-facebook"></span></a>
+                  <a href="#" class="pl-3 pr-3"><span class="icon-twitter"></span></a>
+                  <a href="#" class="pl-3 pr-3"><span class="icon-instagram"></span></a>
+                  <a href="#" class="pl-3 pr-3"><span class="icon-linkedin"></span></a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <h2 class="footer-heading mb-4">Subscribe Newsletter</h2>
+              <form action="#" method="post" class="footer-subscribe">
+                <div class="input-group mb-3">
+                  <input type="text" class="form-control border-secondary text-white bg-transparent"
+                    placeholder="Enter Email" aria-label="Enter Email" aria-describedby="button-addon2">
+                  <div class="input-group-append">
+                    <button class="btn btn-primary text-black" type="button" id="button-addon2">Send</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <!-- .site-wrap -->
+  
+    <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'js/jquery-ui.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'js/jquery.countdown.min.js' %}"></script>
+    <script src="{% static 'js/jquery.easing.1.3.js' %}"></script>
+    <script src="{% static 'js/aos.js' %}"></script>
+    <script src="{% static 'js/jquery.fancybox.min.js' %}"></script>
+    <script src="{% static 'js/jquery.sticky.js' %}"></script>
+    <script src="{% static 'js/isotope.pkgd.min.js' %}"></script>
+  
+  
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+  
+  </body>
+  
+  </html>
